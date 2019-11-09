@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="UTF-8"?>
+ 
+<project name="LGTNet" default="build" basedir=".">
+  <property name="project.name" value="LGTNet"/>
+  <property name="project.mainclass" value="au.edu.imb.lgtnet.LGTNet"/>
+  <property name="project.version" value="1.0"/>
+  
+  <description>Build for ${project.name}</description>
+ 
+  <!-- targets -->
+  <target name="build" depends="package" description="Build whole project"/>
+ 
+  <target name="clean" depends="init" description="Remove previous build files">
+    <delete dir="${build.dir}" includeemptydirs="true" quiet="true"/>
+  </target>
+ 
+  <target name="init">
+    <property environment="env"/>
+ 
+    <!-- check for required tools -->
+    <fail message="Missing SCALA_HOME variable in OS environment">
+      <condition><isset property="${env.SCALA_HOME}"/></condition>
+    </fail>
+    <fail message="Missing JAVA_HOME variable in OS environment">
+      <condition><isset property="${env.JAVA_HOME}"/></condition>
+    </fail>
+    <fail message="Missing ANT_HOME variable in OS environment">
+      <condition><isset property="${env.ANT_HOME}"/></condition>
+    </fail>    
+ 
+    <!-- variables for paths and files -->
+    <property name="src.dir" location="${basedir}/src"/>
+    <property name="lib.dir" location="${basedir}/lib"/>
+    <property name="tools.dir" location="${basedir}/tools"/>    
+    <property name="build.dir" location="${basedir}/build"/>
+    <property name="build-classes.dir" location="${build.dir}/classes"/>
+    <property name="build-lib.dir" location="${build.dir}/lib"/>
+    <property name="build-doc.dir" location="${build.dir}/doc"/>
+    <property name="java.dir" location="${env.JAVA_HOME}"/>
+    <property name="scala.dir" location="${env.SCALA_HOME}"/>
+    <property name="ant.dir" location="${env.ANT_HOME}"/>
+    <property name="scala-library.jar" location="${scala.dir}/lib/scala-library.jar"/>
+    <property name="scala-compiler.jar" location="${scala.dir}/lib/scala-compiler.jar"/>
+	<property name="scala-reflect.jar" value="${scala.dir}/lib/scala-reflect.jar"/>
+ 
+    <path id="project.classpath">
+      <pathelement location="${scala-library.jar}"/>
+      <fileset dir="${lib.dir}"/>
+      <pathelement location="${build-classes.dir}"/> 
+    </path>
+ 
+    <path id="scala.classpath">
+      <pathelement location="${scala-compiler.jar}"/>
+      <pathelement location="${scala-library.jar}"/>
+	  <pathelement location="${scala-reflect.jar}"/>
+    </path>	
+ 
+    <path id="scalatest.classpath">
+      <pathelement location="${tools.dir}/scalatest_2.10-1.9.1.jar"/>
+      <pathelement location="${tools.dir}/scala-actors.jar"/>    	
+      <pathelement location="${scala-library.jar}"/>
+      <pathelement location="${build-classes.dir}"/>
+    </path>
+     
+    <!-- load scala's ant tasks -->
+    <taskdef resource="scala/tools/ant/antlib.xml" classpathref="scala.classpath"/>
+ 
+    <!-- print where this project gets scala, java and libs from -->
+    <echo message="Init project ${project.name}"/>
+    <echo message="with scala.dir = ${scala.dir}"/>
+    <echo message="with java.dir = ${java.dir}"/>
+    <echo message="with lib.dir = ${lib.dir}"/>
+    <echo message="with ant.dir = ${ant.dir}"/>
+    <echo message="with tools.dir = ${tools.dir}"/>
+ 
+    <!-- check if any files has been modified since last build -->
+    <uptodate property="build.uptodate" targetfile="${build.dir}/build.done">
+      <srcfiles dir= "${src.dir}" includes="**"/>
+      <srcfiles dir= "${lib.dir}" includes="**"/>
+    </uptodate>
+  </target>
+ 
+  <target name="compile" depends="init" unless="build.uptodate">
+    <mkdir dir="${build-classes.dir}"/>
+    <scalac
+      destdir="${build-classes.dir}"
+      classpathref="project.classpath">
+      <include name="**/*.scala"/>
+      <src><pathelement location="${src.dir}"/></src>
+    </scalac>
+  </target>
+ 
+  <target name="test" depends="compile">
+    <taskdef name="scalatest" classname="org.scalatest.tools.ScalaTestAntTask">
+      <classpath refid="scalatest.classpath" />
+    </taskdef>
+    <scalatest haltonfailure="true">
+      <suite classname="au.edu.imb.lgtnet.test.AllTests"/>
+    </scalatest>   	
+  </target> 
+	 
+  <target name="doc" depends="compile" unless="build.uptodate">
+    <mkdir dir="${build-doc.dir}"/>
+    <scaladoc
+      srcdir="${src.dir}"
+      destdir="${build-doc.dir}"
+      doctitle="Project API documentation"
+      classpathref="project.classpath">
+      <include name="**/*.scala"/>
+    </scaladoc>
+  </target>
+  
+  <target name="package" depends="doc" unless="build.uptodate">
+    <tstamp>
+      <format property="current.time" pattern="dd.MM.yyyy hh:mm:ss a" />
+    </tstamp>
+    <taskdef name="jarjar" classname="com.tonicsystems.jarjar.JarJarTask"
+        classpath="${tools.dir}\jarjar-1.4.jar"/>  	
+    <mkdir dir="${build-lib.dir}"/>
+    <jarjar destfile="${build-lib.dir}/${project.name}.jar">
+      <manifest>
+        <attribute name="Implementation-Version" value="${project.version}"/>
+        <attribute name="Built-Time" value="${current.time}"/>
+        <attribute name="Main-Class" value="${project.mainclass}" />       
+      </manifest>
+      <fileset dir="${build-classes.dir}" excludes="**/test/*.class" />
+      <zipgroupfileset dir="${lib.dir}" includes="*.jar" excludes="scalatest*.jar"/>    	
+    </jarjar>    
+    <jar destfile="${build-lib.dir}/${project.name}-src.jar">
+      <fileset dir="${src.dir}" includes="**/*.scala"/>
+    </jar>
+    <jar destfile="${build-lib.dir}/${project.name}-doc.jar">
+      <fileset dir="${build-doc.dir}"/>
+    </jar>    
+    <touch file="${build.dir}/build.done"/> 
+  </target>
+	
+  <!--runs proguard to create compressed jar file in install directory -->	
+  <target name="install" depends="package" >	  	
+    <taskdef resource="proguard/ant/task.properties" classpath="${tools.dir}/proguard.jar" />   
+    <proguard configuration="${basedir}/build.pro"/>	  	
+  </target>	
+	
+</project>

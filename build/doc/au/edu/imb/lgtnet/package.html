@@ -1,0 +1,841 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html>
+        <head>
+          <title>lgtnet - Project API documentation - au.edu.imb.lgtnet</title>
+          <meta name="description" content="lgtnet - Project API documentation - au.edu.imb.lgtnet" />
+          <meta name="keywords" content="lgtnet Project API documentation au.edu.imb.lgtnet" />
+          <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+          
+      <link href="../../../../lib/template.css" media="screen" type="text/css" rel="stylesheet" />
+      <link href="../../../../lib/diagrams.css" media="screen" type="text/css" rel="stylesheet" id="diagrams-css" />
+      <script type="text/javascript" src="../../../../lib/jquery.js" id="jquery-js"></script>
+      <script type="text/javascript" src="../../../../lib/jquery-ui.js"></script>
+      <script type="text/javascript" src="../../../../lib/template.js"></script>
+      <script type="text/javascript" src="../../../../lib/tools.tooltip.js"></script>
+      
+      <script type="text/javascript">
+         if(top === self) {
+            var url = '../../../../index.html';
+            var hash = 'au.edu.imb.lgtnet.package';
+            var anchor = window.location.hash;
+            var anchor_opt = '';
+            if (anchor.length >= 1)
+              anchor_opt = '@' + anchor.substring(1);
+            window.location.href = url + '#' + hash + anchor_opt;
+         }
+   	  </script>
+    
+        </head>
+        <body class="value">
+      <div id="definition">
+        <img src="../../../../lib/package_big.png" />
+        <p id="owner"><a href="../../../package.html" class="extype" name="au">au</a>.<a href="../../package.html" class="extype" name="au.edu">edu</a>.<a href="../package.html" class="extype" name="au.edu.imb">imb</a></p>
+        <h1>lgtnet</h1>
+      </div>
+
+      <h4 id="signature" class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">package</span>
+      </span>
+      <span class="symbol">
+        <span class="name">lgtnet</span>
+      </span>
+      </h4>
+      
+          <div id="comment" class="fullcommenttop"></div>
+        
+
+      <div id="mbrsel">
+        <div id="textfilter"><span class="pre"></span><span class="input"><input id="mbrsel-input" type="text" accesskey="/" /></span><span class="post"></span></div>
+        
+        
+        <div id="visbl">
+            <span class="filtertype">Visibility</span>
+            <ol><li class="public in"><span>Public</span></li><li class="all out"><span>All</span></li></ol>
+          </div>
+      </div>
+
+      <div id="template">
+        <div id="allMembers">
+        
+
+        <div id="types" class="types members">
+              <h3>Type Members</h3>
+              <ol><li name="au.edu.imb.lgtnet.AbstractNode" visbl="pub" data-isabs="true" fullComment="no" group="Ungrouped">
+      <a id="AbstractNode[+T]extendsAnyRef"></a>
+      <a id="AbstractNode[+T]:AbstractNode[T]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">trait</span>
+      </span>
+      <span class="symbol">
+        <a href="AbstractNode.html"><span class="name">AbstractNode</span></a><span class="tparams">[<span name="T">+T</span>]</span><span class="result"> extends <span class="extype" name="scala.AnyRef">AnyRef</span></span>
+      </span>
+      </h4>
+      <p class="comment cmt">Abstract super class of name2node that can display the tree</p>
+    </li><li name="au.edu.imb.lgtnet.Alphabet" visbl="pub" data-isabs="true" fullComment="no" group="Ungrouped">
+      <a id="AlphabetextendsSeq[Char]"></a>
+      <a id="Alphabet:Alphabet"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">abstract </span>
+        <span class="kind">class</span>
+      </span>
+      <span class="symbol">
+        <a href="Alphabet.html"><span class="name">Alphabet</span></a><span class="result"> extends <span class="extype" name="scala.Seq">Seq</span>[<span class="extype" name="scala.Char">Char</span>]</span>
+      </span>
+      </h4>
+      <p class="comment cmt">Alphabet (e.</p>
+    </li><li name="au.edu.imb.lgtnet.Annotation" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="AnnotationextendsProductwithSerializable"></a>
+      <a id="Annotation:Annotation"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">case class</span>
+      </span>
+      <span class="symbol">
+        <a href="Annotation.html"><span class="name">Annotation</span></a><span class="params">(<span name="start">start: <span class="extype" name="scala.Int">Int</span></span>, <span name="end">end: <span class="extype" name="scala.Int">Int</span></span>, <span name="length">length: <span class="extype" name="scala.Int">Int</span></span>, <span name="forward">forward: <span class="extype" name="scala.Boolean">Boolean</span></span>, <span name="id">id: <span class="extype" name="scala.Predef.String">String</span></span>, <span name="name">name: <span class="extype" name="scala.Predef.String">String</span></span>, <span name="description">description: <span class="extype" name="scala.Predef.String">String</span></span>, <span name="cogs">cogs: <span class="extype" name="scala.Predef.Set">Set</span>[<span class="extype" name="scala.Predef.String">String</span>]</span>)</span><span class="result"> extends <span class="extype" name="scala.Product">Product</span> with <span class="extype" name="scala.Serializable">Serializable</span></span>
+      </span>
+      </h4>
+      <p class="comment cmt">Manages gene annotation loaded in PTT format.</p>
+    </li><li name="au.edu.imb.lgtnet.Annotations" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="AnnotationsextendsIterable[au.edu.imb.lgtnet.Annotation]"></a>
+      <a id="Annotations:Annotations"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">class</span>
+      </span>
+      <span class="symbol">
+        <a href="Annotations.html"><span class="name">Annotations</span></a><span class="result"> extends <span class="extype" name="scala.Iterable">Iterable</span>[<a href="Annotation.html" class="extype" name="au.edu.imb.lgtnet.Annotation">Annotation</a>]</span>
+      </span>
+      </h4>
+      
+    </li><li name="au.edu.imb.lgtnet.BasicEvolver" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="BasicEvolverextendsEvolver"></a>
+      <a id="BasicEvolver:BasicEvolver"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">class</span>
+      </span>
+      <span class="symbol">
+        <a href="BasicEvolver.html"><span class="name">BasicEvolver</span></a><span class="result"> extends <a href="Evolver.html" class="extype" name="au.edu.imb.lgtnet.Evolver">Evolver</a></span>
+      </span>
+      </h4>
+      <p class="comment cmt">An evolver with out LGT events.</p>
+    </li><li name="au.edu.imb.lgtnet.DefaultNode" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="DefaultNodeextendsAbstractNode[au.edu.imb.lgtnet.DefaultNode]withProductwithSerializable"></a>
+      <a id="DefaultNode:DefaultNode"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">case class</span>
+      </span>
+      <span class="symbol">
+        <a href="DefaultNode.html"><span class="name">DefaultNode</span></a><span class="params">(<span name="name">name: <span class="extype" name="scala.Predef.String">String</span></span>, <span name="length">length: <span class="extype" name="scala.Double">Double</span></span>, <span name="descendants">descendants: <span class="extype" name="scala.List">List</span>[<a href="DefaultNode.html" class="extype" name="au.edu.imb.lgtnet.DefaultNode">DefaultNode</a>] = <span class="symbol">immutable.this.Nil</span></span>)</span><span class="result"> extends <a href="AbstractNode.html" class="extype" name="au.edu.imb.lgtnet.AbstractNode">AbstractNode</a>[<a href="DefaultNode.html" class="extype" name="au.edu.imb.lgtnet.DefaultNode">DefaultNode</a>] with <span class="extype" name="scala.Product">Product</span> with <span class="extype" name="scala.Serializable">Serializable</span></span>
+      </span>
+      </h4>
+      <p class="comment cmt">Default name2node as created by a tree parser.</p>
+    </li><li name="au.edu.imb.lgtnet.Evolver" visbl="pub" data-isabs="true" fullComment="no" group="Ungrouped">
+      <a id="EvolverextendsAnyRef"></a>
+      <a id="Evolver:Evolver"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">abstract </span>
+        <span class="kind">class</span>
+      </span>
+      <span class="symbol">
+        <a href="Evolver.html"><span class="name">Evolver</span></a><span class="result"> extends <span class="extype" name="scala.AnyRef">AnyRef</span></span>
+      </span>
+      </h4>
+      <p class="comment cmt">Base class for evolvers using substitution models</p>
+    </li><li name="au.edu.imb.lgtnet.Genome" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="GenomeextendsAnyRef"></a>
+      <a id="Genome:Genome"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">class</span>
+      </span>
+      <span class="symbol">
+        <a href="Genome.html"><span class="name">Genome</span></a><span class="result"> extends <span class="extype" name="scala.AnyRef">AnyRef</span></span>
+      </span>
+      </h4>
+      <p class="comment cmt">Handles genome sequences.</p>
+    </li><li name="au.edu.imb.lgtnet.JukesCantor" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="JukesCantorextendsSingleLetterSubstitutionModel"></a>
+      <a id="JukesCantor:JukesCantor"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">class</span>
+      </span>
+      <span class="symbol">
+        <a href="JukesCantor.html"><span class="name">JukesCantor</span></a><span class="result"> extends <a href="SingleLetterSubstitutionModel.html" class="extype" name="au.edu.imb.lgtnet.SingleLetterSubstitutionModel">SingleLetterSubstitutionModel</a></span>
+      </span>
+      </h4>
+      <p class="comment cmt">Jukes Cantor transition probability matrix.</p>
+    </li><li name="au.edu.imb.lgtnet.Kimura" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="KimuraextendsSingleLetterSubstitutionModel"></a>
+      <a id="Kimura:Kimura"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">class</span>
+      </span>
+      <span class="symbol">
+        <a href="Kimura.html"><span class="name">Kimura</span></a><span class="result"> extends <a href="SingleLetterSubstitutionModel.html" class="extype" name="au.edu.imb.lgtnet.SingleLetterSubstitutionModel">SingleLetterSubstitutionModel</a></span>
+      </span>
+      </h4>
+      <p class="comment cmt">Kimura transition probability matrix.</p>
+    </li><li name="au.edu.imb.lgtnet.LGTAction" visbl="pub" data-isabs="true" fullComment="no" group="Ungrouped">
+      <a id="LGTActionextendsAnyRef"></a>
+      <a id="LGTAction:LGTAction"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">trait</span>
+      </span>
+      <span class="symbol">
+        <a href="LGTAction.html"><span class="name">LGTAction</span></a><span class="result"> extends <span class="extype" name="scala.AnyRef">AnyRef</span></span>
+      </span>
+      </h4>
+      <p class="comment cmt">The actual event to be performed, e.</p>
+    </li><li name="au.edu.imb.lgtnet.LGTActionOverwrite" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="LGTActionOverwriteextendsLGTAction"></a>
+      <a id="LGTActionOverwrite:LGTActionOverwrite"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">class</span>
+      </span>
+      <span class="symbol">
+        <a href="LGTActionOverwrite.html"><span class="name">LGTActionOverwrite</span></a><span class="result"> extends <a href="LGTAction.html" class="extype" name="au.edu.imb.lgtnet.LGTAction">LGTAction</a></span>
+      </span>
+      </h4>
+      <p class="comment cmt">Takes a section of n letters at a random position in srcSeq and
+overwrites a section at random position in desSeq.</p>
+    </li><li name="au.edu.imb.lgtnet.LGTEvent" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="LGTEventextendsAnyRef"></a>
+      <a id="LGTEvent:LGTEvent"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">class</span>
+      </span>
+      <span class="symbol">
+        <a href="LGTEvent.html"><span class="name">LGTEvent</span></a><span class="result"> extends <span class="extype" name="scala.AnyRef">AnyRef</span></span>
+      </span>
+      </h4>
+      <p class="comment cmt">Data of the LGT event</p>
+    </li><li name="au.edu.imb.lgtnet.LGTEvolver" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="LGTEvolverextendsEvolver"></a>
+      <a id="LGTEvolver:LGTEvolver"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">class</span>
+      </span>
+      <span class="symbol">
+        <a href="LGTEvolver.html"><span class="name">LGTEvolver</span></a><span class="result"> extends <a href="Evolver.html" class="extype" name="au.edu.imb.lgtnet.Evolver">Evolver</a></span>
+      </span>
+      </h4>
+      <p class="comment cmt">An evolver with LGT events.</p>
+    </li><li name="au.edu.imb.lgtnet.LGTPredictor" visbl="pub" data-isabs="true" fullComment="no" group="Ungrouped">
+      <a id="LGTPredictorextendsAnyRef"></a>
+      <a id="LGTPredictor:LGTPredictor"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">abstract </span>
+        <span class="kind">class</span>
+      </span>
+      <span class="symbol">
+        <a href="LGTPredictor.html"><span class="name">LGTPredictor</span></a><span class="result"> extends <span class="extype" name="scala.AnyRef">AnyRef</span></span>
+      </span>
+      </h4>
+      <p class="comment cmt">Predictors of LGT events.</p>
+    </li><li name="au.edu.imb.lgtnet.LGTPredictorAlign" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="LGTPredictorAlignextendsLGTPredictor"></a>
+      <a id="LGTPredictorAlign:LGTPredictorAlign"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">class</span>
+      </span>
+      <span class="symbol">
+        <a href="LGTPredictorAlign.html"><span class="name">LGTPredictorAlign</span></a><span class="result"> extends <a href="LGTPredictor.html" class="extype" name="au.edu.imb.lgtnet.LGTPredictor">LGTPredictor</a></span>
+      </span>
+      </h4>
+      <p class="comment cmt">A simple predictor that uses a sliding window approach.</p>
+    </li><li name="au.edu.imb.lgtnet.LGTPredictorControl" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="LGTPredictorControlextendsLGTPredictor"></a>
+      <a id="LGTPredictorControl:LGTPredictorControl"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">class</span>
+      </span>
+      <span class="symbol">
+        <a href="LGTPredictorControl.html"><span class="name">LGTPredictorControl</span></a><span class="result"> extends <a href="LGTPredictor.html" class="extype" name="au.edu.imb.lgtnet.LGTPredictor">LGTPredictor</a></span>
+      </span>
+      </h4>
+      <p class="comment cmt">A random LGT predictor as control.</p>
+    </li><li name="au.edu.imb.lgtnet.LGTPredictorNGram" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="LGTPredictorNGramextendsLGTPredictor"></a>
+      <a id="LGTPredictorNGram:LGTPredictorNGram"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">class</span>
+      </span>
+      <span class="symbol">
+        <a href="LGTPredictorNGram.html"><span class="name">LGTPredictorNGram</span></a><span class="result"> extends <a href="LGTPredictor.html" class="extype" name="au.edu.imb.lgtnet.LGTPredictor">LGTPredictor</a></span>
+      </span>
+      </h4>
+      
+    </li><li name="au.edu.imb.lgtnet.LGTPredictorNGramV1" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="LGTPredictorNGramV1extendsLGTPredictor"></a>
+      <a id="LGTPredictorNGramV1:LGTPredictorNGramV1"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">class</span>
+      </span>
+      <span class="symbol">
+        <a href="LGTPredictorNGramV1.html"><span class="name">LGTPredictorNGramV1</span></a><span class="result"> extends <a href="LGTPredictor.html" class="extype" name="au.edu.imb.lgtnet.LGTPredictor">LGTPredictor</a></span>
+      </span>
+      </h4>
+      
+    </li><li name="au.edu.imb.lgtnet.MolecularSequence" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="MolecularSequenceextendsSeq[Char]"></a>
+      <a id="MolecularSequence:MolecularSequence"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">class</span>
+      </span>
+      <span class="symbol">
+        <a href="MolecularSequence.html"><span class="name">MolecularSequence</span></a><span class="result"> extends <span class="extype" name="scala.Seq">Seq</span>[<span class="extype" name="scala.Char">Char</span>]</span>
+      </span>
+      </h4>
+      <p class="comment cmt">Molecular sequences, eg.</p>
+    </li><li name="au.edu.imb.lgtnet.NewickParser" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="NewickParser[T]extendsTreeParser[T]"></a>
+      <a id="NewickParser[T]:NewickParser[T]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">class</span>
+      </span>
+      <span class="symbol">
+        <a href="NewickParser.html"><span class="name">NewickParser</span></a><span class="tparams">[<span name="T">T</span>]</span><span class="result"> extends <a href="TreeParser.html" class="extype" name="au.edu.imb.lgtnet.TreeParser">TreeParser</a>[<span class="extype" name="au.edu.imb.lgtnet.NewickParser.T">T</span>]</span>
+      </span>
+      </h4>
+      <p class="comment cmt">Parser for Newick format.</p>
+    </li><li name="au.edu.imb.lgtnet.NewickParser2" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="NewickParser2[T]extendsNewickParser[T]"></a>
+      <a id="NewickParser2[T]:NewickParser2[T]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">class</span>
+      </span>
+      <span class="symbol">
+        <a href="NewickParser2.html"><span class="name">NewickParser2</span></a><span class="tparams">[<span name="T">T</span>]</span><span class="result"> extends <a href="NewickParser.html" class="extype" name="au.edu.imb.lgtnet.NewickParser">NewickParser</a>[<span class="extype" name="au.edu.imb.lgtnet.NewickParser2.T">T</span>]</span>
+      </span>
+      </h4>
+      <p class="comment cmt">Advanced parser for Newick format that allows nested comments and brackets
+in quoted identifiers.</p>
+    </li><li name="au.edu.imb.lgtnet.ParseParms" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="ParseParmsextendsAnyRef"></a>
+      <a id="ParseParms:ParseParms"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">class</span>
+      </span>
+      <span class="symbol">
+        <a href="ParseParms.html"><span class="name">ParseParms</span></a><span class="result"> extends <span class="extype" name="scala.AnyRef">AnyRef</span></span>
+      </span>
+      </h4>
+      
+    </li><li name="au.edu.imb.lgtnet.ProfileWriter" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="ProfileWriterextendsAnyRef"></a>
+      <a id="ProfileWriter:ProfileWriter"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">class</span>
+      </span>
+      <span class="symbol">
+        <a href="ProfileWriter.html"><span class="name">ProfileWriter</span></a><span class="result"> extends <span class="extype" name="scala.AnyRef">AnyRef</span></span>
+      </span>
+      </h4>
+      <p class="comment cmt">Writes profiles to the given file</p>
+    </li><li name="au.edu.imb.lgtnet.SequenceNode" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="SequenceNodeextendsAbstractNode[au.edu.imb.lgtnet.SequenceNode]withProductwithSerializable"></a>
+      <a id="SequenceNode:SequenceNode"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">case class</span>
+      </span>
+      <span class="symbol">
+        <a href="SequenceNode.html"><span class="name">SequenceNode</span></a><span class="params">(<span name="name">name: <span class="extype" name="scala.Predef.String">String</span></span>, <span name="length">length: <span class="extype" name="scala.Double">Double</span></span>, <span name="sequence">sequence: <a href="MolecularSequence.html" class="extype" name="au.edu.imb.lgtnet.MolecularSequence">MolecularSequence</a></span>, <span name="descendants">descendants: <span class="extype" name="scala.List">List</span>[<a href="SequenceNode.html" class="extype" name="au.edu.imb.lgtnet.SequenceNode">SequenceNode</a>]</span>)</span><span class="result"> extends <a href="AbstractNode.html" class="extype" name="au.edu.imb.lgtnet.AbstractNode">AbstractNode</a>[<a href="SequenceNode.html" class="extype" name="au.edu.imb.lgtnet.SequenceNode">SequenceNode</a>] with <span class="extype" name="scala.Product">Product</span> with <span class="extype" name="scala.Serializable">Serializable</span></span>
+      </span>
+      </h4>
+      <p class="comment cmt">Nodes with a sequence as generated by an evolver</p>
+    </li><li name="au.edu.imb.lgtnet.SimpleParser" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="SimpleParser[T]extendsTreeParser[T]"></a>
+      <a id="SimpleParser[T]:SimpleParser[T]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">class</span>
+      </span>
+      <span class="symbol">
+        <a href="SimpleParser.html"><span class="name">SimpleParser</span></a><span class="tparams">[<span name="T">T</span>]</span><span class="result"> extends <a href="TreeParser.html" class="extype" name="au.edu.imb.lgtnet.TreeParser">TreeParser</a>[<span class="extype" name="au.edu.imb.lgtnet.SimpleParser.T">T</span>]</span>
+      </span>
+      </h4>
+      <p class="comment cmt">A simple parser for tree data.</p>
+    </li><li name="au.edu.imb.lgtnet.SingleLetterSubstitutionModel" visbl="pub" data-isabs="true" fullComment="no" group="Ungrouped">
+      <a id="SingleLetterSubstitutionModelextendsSubstitutionModel"></a>
+      <a id="SingleLetterSubstitutionModel:SingleLetterSubstitutionModel"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">abstract </span>
+        <span class="kind">class</span>
+      </span>
+      <span class="symbol">
+        <a href="SingleLetterSubstitutionModel.html"><span class="name">SingleLetterSubstitutionModel</span></a><span class="result"> extends <a href="SubstitutionModel.html" class="extype" name="au.edu.imb.lgtnet.SubstitutionModel">SubstitutionModel</a></span>
+      </span>
+      </h4>
+      <p class="comment cmt">Substitution models for individual substitutions, e.</p>
+    </li><li name="au.edu.imb.lgtnet.SubstitutionModel" visbl="pub" data-isabs="true" fullComment="no" group="Ungrouped">
+      <a id="SubstitutionModelextendsAnyRef"></a>
+      <a id="SubstitutionModel:SubstitutionModel"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">abstract </span>
+        <span class="kind">class</span>
+      </span>
+      <span class="symbol">
+        <a href="SubstitutionModel.html"><span class="name">SubstitutionModel</span></a><span class="result"> extends <span class="extype" name="scala.AnyRef">AnyRef</span></span>
+      </span>
+      </h4>
+      <p class="comment cmt">Describes a transition probability matrix for substitutions.</p>
+    </li><li name="au.edu.imb.lgtnet.TreeParser" visbl="pub" data-isabs="true" fullComment="no" group="Ungrouped">
+      <a id="TreeParser[T]extendsJavaTokenParsers"></a>
+      <a id="TreeParser[T]:TreeParser[T]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">abstract </span>
+        <span class="kind">class</span>
+      </span>
+      <span class="symbol">
+        <a href="TreeParser.html"><span class="name">TreeParser</span></a><span class="tparams">[<span name="T">T</span>]</span><span class="result"> extends <span class="extype" name="scala.util.parsing.combinator.JavaTokenParsers">JavaTokenParsers</span></span>
+      </span>
+      </h4>
+      <p class="comment cmt">Super class of tree parsers that removes comments from input and provided
+read functions for input.</p>
+    </li></ol>
+            </div>
+
+        
+
+        <div id="values" class="values members">
+              <h3>Value Members</h3>
+              <ol><li name="au.edu.imb.lgtnet.AA" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="AA"></a>
+      <a id="AA:AA"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">object</span>
+      </span>
+      <span class="symbol">
+        <a href="AA$.html"><span class="name">AA</span></a><span class="result"> extends <a href="Alphabet.html" class="extype" name="au.edu.imb.lgtnet.Alphabet">Alphabet</a></span>
+      </span>
+      </h4>
+      <p class="comment cmt">Amino acid alphabet</p>
+    </li><li name="au.edu.imb.lgtnet.Alphabet" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="Alphabet"></a>
+      <a id="Alphabet:Alphabet"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">object</span>
+      </span>
+      <span class="symbol">
+        <a href="Alphabet$.html"><span class="name">Alphabet</span></a>
+      </span>
+      </h4>
+      
+    </li><li name="au.edu.imb.lgtnet.AlphabetExample" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="AlphabetExample"></a>
+      <a id="AlphabetExample:AlphabetExample"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">object</span>
+      </span>
+      <span class="symbol">
+        <a href="AlphabetExample$.html"><span class="name">AlphabetExample</span></a><span class="result"> extends <span class="extype" name="scala.App">App</span></span>
+      </span>
+      </h4>
+      <p class="comment cmt">Usage example</p>
+    </li><li name="au.edu.imb.lgtnet.Annotations" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="Annotations"></a>
+      <a id="Annotations:Annotations"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">object</span>
+      </span>
+      <span class="symbol">
+        <a href="Annotations$.html"><span class="name">Annotations</span></a>
+      </span>
+      </h4>
+      
+    </li><li name="au.edu.imb.lgtnet.DNA" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="DNA"></a>
+      <a id="DNA:DNA"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">object</span>
+      </span>
+      <span class="symbol">
+        <a href="DNA$.html"><span class="name">DNA</span></a><span class="result"> extends <a href="Alphabet.html" class="extype" name="au.edu.imb.lgtnet.Alphabet">Alphabet</a></span>
+      </span>
+      </h4>
+      <p class="comment cmt">Nucleotide alphabet</p>
+    </li><li name="au.edu.imb.lgtnet.Evaluator" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="Evaluator"></a>
+      <a id="Evaluator:Evaluator"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">object</span>
+      </span>
+      <span class="symbol">
+        <a href="Evaluator$.html"><span class="name">Evaluator</span></a><span class="result"> extends <span class="extype" name="scala.App">App</span></span>
+      </span>
+      </h4>
+      <p class="comment cmt">Evaluation of LGT predictors
+</p>
+    </li><li name="au.edu.imb.lgtnet.EvolverExample" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="EvolverExample"></a>
+      <a id="EvolverExample:EvolverExample"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">object</span>
+      </span>
+      <span class="symbol">
+        <a href="EvolverExample$.html"><span class="name">EvolverExample</span></a><span class="result"> extends <span class="extype" name="scala.App">App</span></span>
+      </span>
+      </h4>
+      <p class="comment cmt">Usage example</p>
+    </li><li name="au.edu.imb.lgtnet.Genome" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="Genome"></a>
+      <a id="Genome:Genome"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">object</span>
+      </span>
+      <span class="symbol">
+        <a href="Genome$.html"><span class="name">Genome</span></a>
+      </span>
+      </h4>
+      
+    </li><li name="au.edu.imb.lgtnet.JukesCantor" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="JukesCantor"></a>
+      <a id="JukesCantor:JukesCantor"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">object</span>
+      </span>
+      <span class="symbol">
+        <a href="JukesCantor$.html"><span class="name">JukesCantor</span></a>
+      </span>
+      </h4>
+      <p class="comment cmt">Factory</p>
+    </li><li name="au.edu.imb.lgtnet.Kimura" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="Kimura"></a>
+      <a id="Kimura:Kimura"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">object</span>
+      </span>
+      <span class="symbol">
+        <a href="Kimura$.html"><span class="name">Kimura</span></a>
+      </span>
+      </h4>
+      <p class="comment cmt">Factory</p>
+    </li><li name="au.edu.imb.lgtnet.LGTEvent" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="LGTEvent"></a>
+      <a id="LGTEvent:LGTEvent"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">object</span>
+      </span>
+      <span class="symbol">
+        <a href="LGTEvent$.html"><span class="name">LGTEvent</span></a>
+      </span>
+      </h4>
+      <p class="comment cmt">Factory for LGT events</p>
+    </li><li name="au.edu.imb.lgtnet.LGTEventExample" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="LGTEventExample"></a>
+      <a id="LGTEventExample:LGTEventExample"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">object</span>
+      </span>
+      <span class="symbol">
+        <a href="LGTEventExample$.html"><span class="name">LGTEventExample</span></a><span class="result"> extends <span class="extype" name="scala.App">App</span></span>
+      </span>
+      </h4>
+      <p class="comment cmt">Usage example</p>
+    </li><li name="au.edu.imb.lgtnet.LGTNet" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="LGTNet"></a>
+      <a id="LGTNet:LGTNet"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">object</span>
+      </span>
+      <span class="symbol">
+        <a href="LGTNet$.html"><span class="name">LGTNet</span></a>
+      </span>
+      </h4>
+      <p class="comment cmt">The main object that loads sequences from a file, infers an LGT network and
+writes the result to a file in matrix form.</p>
+    </li><li name="au.edu.imb.lgtnet.Metric" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="Metric"></a>
+      <a id="Metric:Metric"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">object</span>
+      </span>
+      <span class="symbol">
+        <a href="Metric$.html"><span class="name">Metric</span></a>
+      </span>
+      </h4>
+      <p class="comment cmt">Performance metrics for predictors
+</p>
+    </li><li name="au.edu.imb.lgtnet.MetricExample" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="MetricExample"></a>
+      <a id="MetricExample:MetricExample"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">object</span>
+      </span>
+      <span class="symbol">
+        <a href="MetricExample$.html"><span class="name">MetricExample</span></a><span class="result"> extends <span class="extype" name="scala.App">App</span></span>
+      </span>
+      </h4>
+      <p class="comment cmt">Usage example</p>
+    </li><li name="au.edu.imb.lgtnet.MolecularSequence" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="MolecularSequence"></a>
+      <a id="MolecularSequence:MolecularSequence"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">object</span>
+      </span>
+      <span class="symbol">
+        <a href="MolecularSequence$.html"><span class="name">MolecularSequence</span></a>
+      </span>
+      </h4>
+      <p class="comment cmt">Factory</p>
+    </li><li name="au.edu.imb.lgtnet.MolecularSequenceExample" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="MolecularSequenceExample"></a>
+      <a id="MolecularSequenceExample:MolecularSequenceExample"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">object</span>
+      </span>
+      <span class="symbol">
+        <a href="MolecularSequenceExample$.html"><span class="name">MolecularSequenceExample</span></a><span class="result"> extends <span class="extype" name="scala.App">App</span></span>
+      </span>
+      </h4>
+      <p class="comment cmt">Usage Example</p>
+    </li><li name="au.edu.imb.lgtnet.NGrams" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="NGrams"></a>
+      <a id="NGrams:NGrams"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">object</span>
+      </span>
+      <span class="symbol">
+        <a href="NGrams$.html"><span class="name">NGrams</span></a>
+      </span>
+      </h4>
+      
+    </li><li name="au.edu.imb.lgtnet.ParseParmsExample" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="ParseParmsExample"></a>
+      <a id="ParseParmsExample:ParseParmsExample"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">object</span>
+      </span>
+      <span class="symbol">
+        <a href="ParseParmsExample$.html"><span class="name">ParseParmsExample</span></a>
+      </span>
+      </h4>
+      
+    </li><li name="au.edu.imb.lgtnet.Similarity" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="Similarity"></a>
+      <a id="Similarity:Similarity"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">object</span>
+      </span>
+      <span class="symbol">
+        <a href="Similarity$.html"><span class="name">Similarity</span></a>
+      </span>
+      </h4>
+      <p class="comment cmt">Different method to measure sequence similarity
+</p>
+    </li><li name="au.edu.imb.lgtnet.SimilarityExample" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="SimilarityExample"></a>
+      <a id="SimilarityExample:SimilarityExample"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">object</span>
+      </span>
+      <span class="symbol">
+        <a href="SimilarityExample$.html"><span class="name">SimilarityExample</span></a><span class="result"> extends <span class="extype" name="scala.App">App</span></span>
+      </span>
+      </h4>
+      <p class="comment cmt">Usage example</p>
+    </li><li name="au.edu.imb.lgtnet.SubstitutionModelExample" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="SubstitutionModelExample"></a>
+      <a id="SubstitutionModelExample:SubstitutionModelExample"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">object</span>
+      </span>
+      <span class="symbol">
+        <a href="SubstitutionModelExample$.html"><span class="name">SubstitutionModelExample</span></a><span class="result"> extends <span class="extype" name="scala.App">App</span></span>
+      </span>
+      </h4>
+      <p class="comment cmt">Usage example</p>
+    </li><li name="au.edu.imb.lgtnet.TreeFactory" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="TreeFactory"></a>
+      <a id="TreeFactory:TreeFactory"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">object</span>
+      </span>
+      <span class="symbol">
+        <a href="TreeFactory$.html"><span class="name">TreeFactory</span></a>
+      </span>
+      </h4>
+      <p class="comment cmt">Creates simulations of phylogenetic trees.</p>
+    </li><li name="au.edu.imb.lgtnet.TreeParserExample" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="TreeParserExample"></a>
+      <a id="TreeParserExample:TreeParserExample"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">object</span>
+      </span>
+      <span class="symbol">
+        <a href="TreeParserExample$.html"><span class="name">TreeParserExample</span></a><span class="result"> extends <span class="extype" name="scala.App">App</span></span>
+      </span>
+      </h4>
+      <p class="comment cmt">Just some usage examples</p>
+    </li><li name="au.edu.imb.lgtnet.Ultrametric" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="Ultrametric"></a>
+      <a id="Ultrametric:Ultrametric"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">object</span>
+      </span>
+      <span class="symbol">
+        <a href="Ultrametric$.html"><span class="name">Ultrametric</span></a><span class="result"> extends <span class="extype" name="scala.App">App</span></span>
+      </span>
+      </h4>
+      <p class="comment cmt">Test whether generated trees are ultrametric
+metric:
+  d(x,y) &gt; 0                for x != y
+  d(x,y) == 0               for x == y
+  d(x,y) == d(y,x)          for All x,y
+  d(x,y) &lt;= d(x,z)+d(y,z)   for All x,y,z (triangle inequality)</p>
+    </li><li name="au.edu.imb.lgtnet.VectorMath" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="VectorMath"></a>
+      <a id="VectorMath:VectorMath"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">object</span>
+      </span>
+      <span class="symbol">
+        <a href="VectorMath$.html"><span class="name">VectorMath</span></a>
+      </span>
+      </h4>
+      <p class="comment cmt">Functions mainly for math on vectors.</p>
+    </li><li name="au.edu.imb.lgtnet.test" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="test"></a>
+      <a id="test:test"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">package</span>
+      </span>
+      <span class="symbol">
+        <a href="test/package.html"><span class="name">test</span></a>
+      </span>
+      </h4>
+      
+    </li></ol>
+            </div>
+
+        
+
+        
+        </div>
+
+        <div id="inheritedMembers">
+        
+        
+        </div>
+
+        <div id="groupedMembers">
+        <div class="group" name="Ungrouped">
+              <h3>Ungrouped</h3>
+              
+            </div>
+        </div>
+
+      </div>
+
+      <div id="tooltip"></div>
+
+      <div id="footer">  </div>
+
+
+    </body>
+      </html>

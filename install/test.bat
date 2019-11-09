@@ -1,0 +1,1 @@
+java -jar LGTNet.jar -i test\test.fa -o test\network.tsv -p test\profiles.tsv

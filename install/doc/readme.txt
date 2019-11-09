@@ -1,0 +1,1 @@
+LGTNet: Fast inference of lateral genetic transfer networks.

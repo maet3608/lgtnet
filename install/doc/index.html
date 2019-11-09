@@ -1,0 +1,312 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN"
+"http://www.w3.org/TR/html4/strict.dtd">
+
+<html>
+  <head>
+    <link rev="made" href="mailto:s.maetschke@uq.edu.au">
+    <title>LGTNet</title>
+    <link type="text/css" rel="stylesheet" href="style.css">
+  </head>
+
+<body>
+
+
+
+<!-- ================================================================================ -->
+<br />
+<h1><center style=font-size:200%>LGTNet</center></h1>
+<center>Version 1.00</center>
+
+<div style="text-align:center; padding:40px 0px 0px 0px" >
+  <a href="bin/lgtnet.zip"><img src="./pic/download_btn.png" ></a>
+  <a href="bin/lgtnet.zip"><p>download</p></a>
+</div>
+
+
+<!-- ================================================================================ -->
+<h1>contents</h1>
+
+<ul>
+  <li><a href="#installation">installation</a></li>
+  <li><a href="#introduction">introduction</a></li>
+  <li><a href="#usage">usage</a></li>
+  <li><a href="#example">example</a></li>
+  <li><a href="#software">software</a></li>
+  <li><a href="#faq">faq</a></li>
+  <li><a href="#history">version history</a></li>
+  <li><a href="#contact">contact</a></li>
+  <li><a href="#references">references</a></li>
+</ul>
+
+
+
+<!-- ================================================================================ -->
+<h1><a name="installation">installation</a></h1>
+
+<p>
+Download <b>LGTNet</b> and unpack the zip-file 
+to a folder of your choice. Then run the command <tt>test.bat</tt> (Windows) or 
+<tt>./test.sh</tt> (Linux) to ensure that everything is working properly. 
+Compare the program output to the example output provided <a href="#example">here</a>.
+The software runs on all platforms that support the Java Runtime Environment JRE 1.6.x or higher 
+(tested only for Windows 7 and Linux 3.8.13). To verify that Java is installed run 
+<tt>java -version</tt>. The console output should be similar to this example:
+<pre>
+java version "1.6.0_22"
+Java(TM) SE Runtime Environment (build 1.6.0_22-b04)
+Java HotSpot(TM) Client VM (build 17.1-b03, mixed mode, sharing)
+</pre>
+
+If Java is not installed, download the Java runtime environment from 
+<a href="http://java.sun.com/products/archive">http://java.sun.com/products/archive</a>
+and run the installer.
+
+
+
+
+<!-- ================================================================================ -->
+<h1><a name="introduction">introduction</a></h1>
+
+<p>
+<b>LGTNet</b> is a software to infer networks of lateral genetic transfer (LGT) from sequence data.
+In contrast to traditional techniques based on multiple sequence alignments and phylogenetic
+trees <b>LGTNet</b> is an alignment- and tree-free method. As a consequence, <b>LGTNet</b> is
+very fast (more than 1000 times faster than a phylogenetic approach) but cannot infer when in
+time an LGT event happened. It only predicts, which species have exchanged genetic material
+at some point in time and approximately indicates the sequence regions involved.
+</p>
+
+
+
+<!-- ================================================================================ -->
+<h1><a name="usage">usage</a></h1>
+
+<p><b>LGTNet</b> is invoked from the command line using the following format:</p>
+<pre>
+lgtnet.(bat|sh) -i &lt;fasta_file|folder&gt; [-o &lt;output_file|stdout&gt; -n &lt;substring_length&gt; -w &lt;window-size&gt; -m &lt;high|medium|low&gt; -p &lt;profiles_file&gt;]
+</pre>
+
+<h3>examples</h3>
+<pre>
+lgtnet.bat -i test/test.fa
+</pre>
+<pre>
+lgtnet.bat -i test/test.fa -o test/network.tsv
+</pre>
+<pre>
+./lgtnet.sh -i test/test.fa -o test/network.tsv -n 7 -w 20
+</pre>
+<pre>
+./lgtnet.sh -i test/test.fa -o test/network.tsv -p test/profiles.tsv
+</pre>
+
+<h3>options</h3>
+<p>
+<tt>-i &lt;fasta_file|folder&gt;</tt> specifies the input data and is required. Input data can be provided either
+as a path to a single FASTA file (e.g. -i data/genomes.fa) containing sequence data in multi FASTA format 
+or as a path to a folder (e.g. -i data/sequences) that contains multiple individual FASTA files with sequence data.
+Note that sequence data must not contain ambiguity characters.
+</p>
+<p>
+<b>LGTNet</b> extracts sequence identifiers from the FASTA header of each sequence by 
+taking all characters up to the first comma, whitespace or pipe symbol. Here some examples of header files and the resulting
+sequence identifiers: 
+<pre>
+HEADER                                        SEQUENCE ID
+>NC_010498.1                             =>   NC_010498.1 
+>NC_010498.1|Escherichia coli SMS-3-5    =>   NC_010498.1  
+>NC_010498.1, Escherichia coli SMS-3-5   =>   NC_010498.1 
+>NC_010498.1 Escherichia coli SMS-3-5    =>   NC_010498.1 
+</pre>
+Yous should ensure that the extracted sequence identifiers are unique, since they are used in the output files described below.
+</p>
+
+<p>
+<tt>-o &lt;output_file|stdout&gt;</tt> specifies the output destination for the inferred network and is optional.
+The network is either written to standard output (<tt>-o stdout</tt>) or to a file (e.g. <tt>-o results/output.tsv</tt>).
+If no output destination is specified standard output is chosen. The network is outputted as
+a symmetric weight matrix in tab-separated-values (tsv) format:
+<pre style="font-size: 90%">
+SE001 0.000 0.776 0.807 0.772 0.805 0.778 0.766 0.770 0.624 0.756
+SE002 0.776 0.000 0.794 0.704 0.776 0.712 0.688 0.794 0.800 0.758
+SE003 0.807 0.794 0.000 0.789 0.822 0.799 0.781 0.716 0.797 0.666
+SE004 0.772 0.704 0.789 0.000 0.759 0.673 0.568 0.782 0.794 0.763
+SE005 0.805 0.776 0.822 0.759 0.000 0.767 0.763 0.828 0.829 0.819
+SE006 0.778 0.712 0.799 0.673 0.767 0.000 0.655 0.787 0.797 0.759
+SE007 0.766 0.688 0.781 0.568 0.763 0.655 0.000 0.775 0.800 0.752
+SE008 0.770 0.794 0.716 0.782 0.828 0.787 0.775 0.000 0.783 0.595
+SE009 0.624 0.800 0.797 0.794 0.829 0.797 0.800 0.783 0.000 0.761
+SE010 0.756 0.758 0.666 0.763 0.819 0.759 0.752 0.595 0.761 0.000
+</pre>
+The first column contains the sequence identifiers and rows are sorted following the same order. 
+Each matrix cell contains the confidence score for an LGT prediction ranging from zero to one.
+For instance, there is fairly high confidence for an interaction between SE0001 and SE0003,
+since the score is 0.807. On the other hand, the score for an interaction between sequences SE008 and
+SE010 is only 0.595.
+</p>
+
+<p>
+<tt>-n &lt;substring_length&gt;</tt> specifies the length of the substrings. This parameter is optional
+and default values of 21 and 7 are chosen for DNA and amino acid sequences, respectively.
+<b>LGTNet</b> determines the sequence type automatically.
+</p>
+<p>
+<tt>-w &lt;window-size&gt;</tt> specifies window length (or bin size). This parameter is optional
+and default values of 60 and 20 are chosen for DNA and amino acid sequences, respectively.
+</p>
+<p>
+<tt>-m &lt;high|medium|low&gt;</tt> specifies one of three different computation modes.
+The default mode is <tt>high</tt>.<br />
+<tt>-m high</tt>: high speed and memory consumption.<br />
+<tt>-m medium</tt>: medium speed and memory consumption.<br />
+<tt>-m low</tt>: low speed and memory consumption.<br />
+
+</p>
+<p>
+<tt>-p &lt;profiles_file&gt;</tt> specifies a file to write profile data to. Per default no
+profile data are written. The profile file contains the histogram data for each
+pair of sequences (see example below). All values are tab separated.
+The first column shows the ids of the compared sequences
+and the integers following show the frequencies of substring matches for each
+histogram bin. Considering the specified window size (= bin size) this data can be used
+to identify sequence regions that are likely to be involved in LGT.
+<pre style="font-size: 90%">
+SE003-SE009 28  12  18  26  0   22  32  10  15  4 ...
+SE005-SE009 40  12  16  16  8   16  20  8   0   0 ...
+SE002-SE005 14  26  14  30  8   26  20  18  0   0 ...
+SE002-SE010 28  26  14  32  40  26  26  14  26  0 ...
+SE001-SE002 28  20  18  28  40  18  20  20  12  6 ...
+SE001-SE007 28  34  18  28  40  26  20  36  10  0 ...
+...
+</pre>
+</p>
+
+
+<!-- ================================================================================ -->
+<h1><a name="example">example</a></h1>
+
+<p>
+Here an example output of <b>LGTNet</b> when running the test example via <tt>test.bat</tt> or
+<tt>./test.sh</tt>.
+Computation should finish within a few seconds and the <tt>test</tt> folder should then contain
+two new files: <tt>network.tsv</tt> and <tt>profiles.tsv</tt>
+</p>
+
+<pre style="font-size: 90%">
+LGTNet Version: 1.00
+loading ...
+parameters        -i test/test.fa -o test/network.tsv -p test/profiles.tsv
+sequences read    10
+alphabet          AA
+substring length  7
+window size       20
+mode              high
+processing.............................................
+writing ...
+finished.
+</pre>
+
+<p>
+Running <tt>test.bat</tt> is the same as running <tt>lgtnet.bat</tt> with the following parameter settings:
+</p>
+<pre>
+lgtnet.bat -i test/test.fa -o test/network.tsv -p test/profiles.tsv
+</pre>
+
+
+
+
+
+
+
+
+<!-- ================================================================================ -->
+<h1><a name="software">software</a></h1>
+
+<p>
+<b>LGTNet</b> is written in <a href="http://www.scala-lang.org/">Scala</a> (Version 2.10),
+and runs under the Java Runtime Environment 1.6 or later. The source code is available upon request.
+</p>
+
+
+<!-- ================================================================================ -->
+<h1><a name="faq">frequently asked questions</a></h1>
+
+<h3>Logging of errors</h3>
+<p>
+In case of an error <b>LGTNet</b> writes a logfile <tt>error.log</tt> with detailed
+information concerning location and reason of the problem.
+</p>
+
+<h3>Invalid letter in sequence</h3>
+<p>
+<b>LGTNet</b> does not permit ambiguity characters in sequences. If you encounter an error 
+message such as <tt>java.lang.Exception: Invalid letter in sequence: 'X' Alphabet=AA</tt>
+it means that your sequence data contain ambiguity characters that need to be removed. 
+</p>
+
+
+<h3>Out of memory</h3>
+<p>
+This error message occurs when <b>LGTNet</b> (or more precisely the Java Runtime Environment) 
+runs out of memory. In this case replace the option <tt>-Xmx600M</tt> within the 
+<tt>lgtnet.bat</tt> file by a higher value (e.g. <tt>-Xmx2000M</tt> means 2000 Megabytes and 
+<tt>-Xmx12G</tt> means 12 Gigabytes) or run <b>LGTNet</b> in low memory consumption mode <tt>-m low</tt>.
+</p>
+
+
+<h3>Could not create the Java virtual machine</h3>
+<p>
+If the amount of memory requested (using <tt>-Xmx</tt>) is too large the 
+Java runtime environment will report the following error
+"Could not create the Java virtual machine". What is too large and what not
+depends on the amount of main memory available in your computer.
+</p>
+
+
+<h3>Computation takes too long</h3>
+<p>
+The computation time grows quadratically with the number of species and
+linearly with the sequence length. If your computer has multiple cores
+run LGTNet with the option <tt>-m high</tt> to accelerate computation. On a single core
+machine the setting <tt>-m medium</tt> is equally fast or even faster.
+</p>
+
+
+
+
+
+<!-- ================================================================================ -->
+<h1><a name="history">history</a></h1>
+
+<br>
+<table border="1" width = "70%" >
+<tr><th>version</th><th>date</th><th>description</th></tr>
+<tr><td>1.00</td><td>15.07.13</td>
+    <td>First public version</td>
+</tr>
+</table>
+
+
+
+<!-- ================================================================================ -->
+<h1><a name="contact">contact</a></h1>
+
+<table border="1" width = "70%" >
+  <tr><th>name</th><th>email</th></tr>
+  <tr><td>Mark Ragan</td><td>m.ragan@uq.edu.au</td></tr>
+</table>
+
+
+<!-- ================================================================================ -->
+<h1><a name="references">references</a></h1>
+
+<p>
+<i>S. Maetschke, L. McIntyre, C. Chan, M. Ragan</i> <br/>
+Fast inference of lateral genetic transfer networks.
+</p>
+
+
+</body>
+</html>
+
